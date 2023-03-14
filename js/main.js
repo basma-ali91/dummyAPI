@@ -1,5 +1,6 @@
 let products = document.getElementById("products");
-let search =document.getElementById("Search")
+let search =document.getElementById("Search");
+let btn =document.getElementById("btn");
 
 let result=[]
 async function getproducts(){
@@ -58,7 +59,22 @@ function searchfunction(){
 }
 products.innerHTML=searchword;
 }
+
+
 search.addEventListener("keyup",function(){
     console.log(search.value)
         searchfunction()
+    })
+
+    
+     function sortLowTohigh() {
+      result.sort(function(a,b){
+        return a.price - b.price;
+      })
+
+      displayproducts()
+     }
+
+     btn.addEventListener("click",function(){
+        sortLowTohigh()
      })
